@@ -6,7 +6,6 @@ node {
           [$class: 'DevelopersRecipientProvider'],
           [$class: 'RequesterRecipientProvider']
   ])
-
   // job
   try {
     stage('build') {
@@ -16,6 +15,7 @@ node {
       println('A test has failed!')
       sh 'exit 1'
     }
+  // try et catch utilisés pour récupéré le résultat 
   } catch(e) {
     // mark build as failed
     currentBuild.result = "FAILURE";
